@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela Mecânica RP - GTA V</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Background overlay -->
+    <div class="background-overlay"></div>
+
+    <!-- Header -->
+    <header class="header-section">
+        <div class="container">
+            <h1 class="main-title">TABELA MECÂNICA RP</h1>
+            <h2 class="subtitle">GTA V ROLEPLAY</h2>
+            <p class="update-date">Última atualização: <span id="current-date"></span></p>
+        </div>
+    </header>
+
+    <!-- Services Table Section -->
+    <section class="services-section">
+        <div class="container">
+            <div class="section-block">
+                <h3 class="section-title">
+                    <span class="neon-text">TABELA DE SERVIÇOS</span>
+                </h3>
+                <div class="table-container">
+                    <table class="services-table">
+                        <thead>
+                            <tr>
+                                <th>SERVIÇO</th>
+                                <th>FORA (R$)</th>
+                                <th>DENTRO (R$)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="services-table-body">
+                            <!-- Services will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section class="calculator-section">
+        <div class="container">
+            <div class="section-block">
+                <h3 class="section-title">
+                    <span class="neon-text">CALCULADORA DE TRABALHOS</span>
+                </h3>
+                <div class="calculator-grid">
+                    <div class="calc-group">
+                        <label>Serviços:</label>
+                        <div id="services-checkboxes" class="services-checkboxes">
+                            <!-- Services checkboxes will be populated by JavaScript -->
+                        </div>
+                    </div>
+                    <div class="calc-group">
+                        <label for="location-select">Local:</label>
+                        <select id="location-select" class="calc-input">
+                            <option value="fora">Fora da Oficina</option>
+                            <option value="dentro">Dentro da Oficina</option>
+                        </select>
+                    </div>
+                    <div class="calc-group">
+                        <label for="extra-services">Serviços Extras (R$):</label>
+                        <input type="number" id="extra-services" class="calc-input" min="0" value="0" step="0.01">
+                        <small class="help-text">Valor adicional para serviços não listados</small>
+                    </div>
+                    <div class="calc-group">
+                        <label for="elevator-tax">Taxa Elevador (%):</label>
+                        <input type="number" id="elevator-tax" class="calc-input" min="0" max="100" value="30">
+                    </div>
+                    <div class="calc-group">
+                        <label for="discount-input">Desconto (%):</label>
+                        <input type="number" id="discount-input" class="calc-input" min="0" max="100" value="0">
+                    </div>
+                    <div class="calc-group checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="apply-elevator-tax">
+                            <span class="checkmark"></span>
+                            Aplicar Taxa do Elevador
+                        </label>
+                    </div>
+                </div>
+                <div class="calc-buttons">
+                    <button id="calculate-btn" class="btn btn-primary">CALCULAR</button>
+                    <button id="clear-btn" class="btn btn-secondary">LIMPAR</button>
+                </div>
+                <div id="result-display" class="result-display hidden">
+                    <div class="result-content">
+                        <h4>VALOR TOTAL:</h4>
+                        <div id="result-value" class="result-value">R$ 0,00</div>
+                        <div id="services-count" class="services-count"></div>
+                        <button id="summary-btn" class="btn btn-outline">VER RESUMO</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-section">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-text">
+                    <span class="highlight">IMPORTANTE:</span> Valores válidos para todas as mecânicas da cidade
+                </p>
+                <p class="footer-text">
+                    <span class="warning">AVISO:</span> Preços sujeitos a alteração sem aviso prévio
+                </p>
+                <div class="footer-credits">
+                    <p>© 2025 - Sistema de Mecânica RP | Los Santos</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Summary Modal -->
+    <div id="summary-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>RESUMO DO CÁLCULO</h3>
+                <button id="close-modal" class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="summary-details">
+                    <!-- Summary details will be populated by JavaScript -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="close-summary" class="btn btn-primary">FECHAR</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
